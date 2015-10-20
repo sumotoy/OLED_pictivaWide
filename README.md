@@ -2,7 +2,7 @@
 A real working library for the Osram Pictiva OLED 288x48 that works fast<br>
 
 <b>Background</b><br>
-I got this display from ebay, loved the quality (german, not shitty-chippy-china or wolkswagen-phony style) but I immediately realized a big fail in the design, Osram cannot find a controller for the 288 columns so they choosed an obscure SSD0323 from Solomon that is 48x96 rgb and connect the single r,g,b as:<br>
+I got this display from ebay, loved the quality (german, not shitty-chippy-chinese) but I immediately realized a big fail in the design, Osram cannot find a controller for the 288 columns so they choosed an obscure SSD0323 from Solomon that is 48x96 rgb and connect the single r,g,b as:<br>
  - column 0: r (pixel 1)
  - column 1: g (pixel 1)
  - column 2: b (pixel 1)
