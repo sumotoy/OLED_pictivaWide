@@ -1,5 +1,5 @@
 # OLED_pictivaWide
-A real working library for the Osram Pictiva OLED 288x48 that works fast<br>
+A REAL and fully working library for the Osram Pictiva OLED 288x48, one of the most failure designed display I come across!<br>
 
 <b>Background</b><br>
 I got this nice display on ebay, really cheap and I was really surprised, it come with an arduino library and some king of documentation (very poor indeed), it was looking a real affair!<br>
@@ -17,3 +17,6 @@ These are goals, but studing how Osram designed this display I come across reall
 I like almost impossible challenge and at the end I was able to write every type of font, use most accellerated graphic command and so on, all my design point reached!<br>
 <b>Why still not posted?</b><br>
 Doing some research on the net I come across some suspect request I find in hire engineer site where a guy is paying 50US for write a simple library for this display that act as text display, this is really similar to the library I got with the display (nothing to say to the ebay display vendor, he was nice to provide and at list it works somehow), I take time to finish and optimize it (in a couple of days I will post video of proff that shows my current development results) than if I have some request I will post it. In the meantime if you came across this display you are warned, there's nothing online that can help you and it's really a challenge to write something usable!
+
+<b>Why it's so cheap?</b><br>
+Probably Osram realized that their design it's a massive fail and they are selling quickly all the stocks for nothing. The display it's available on ebay for a price that it's probably lower that the production costs, I come across stock of this display everywhere in the world, you can find for 3,4 US!
