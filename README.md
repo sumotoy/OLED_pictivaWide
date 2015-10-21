@@ -1,5 +1,9 @@
-# OLED_pictivaWide
+# OLED pictiva 288x48
 A REAL and fully working library for the Osram Pictiva OLED 288x48, one of the most failure designed display I come across!<br>
+
+- OS288048PQ33MY0C11
+- OS288048PQ33MG1C11
+- OS288048PQ33MO2C11
 
 <b>Background</b><br>
 I got this nice display on ebay, really cheap and I was really surprised, it come with an arduino library and some king of documentation (very poor indeed), it was looking a real affair!<br>
