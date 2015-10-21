@@ -2,16 +2,18 @@
 A real working library for the Osram Pictiva OLED 288x48 that works fast<br>
 
 <b>Background</b><br>
-I got this display from ebay, loved the quality (german, not shitty-chippy-chinese) but I immediately realized a big fail in the design, Osram cannot find a controller for the 288 columns so they choosed an obscure SSD0323 from Solomon that is 48x96 rgb and connect the single r,g,b as:<br>
- - column 0: r (pixel 1)
- - column 1: g (pixel 1)
- - column 2: b (pixel 1)
- - ...
- - column 287: b (pixel 96)
- 
-As result 96x3 = 288, ok, but this has literally broken every accellerated macro of the SSD chip and have a reliable access to the cgram of the display.<br> I got a library with the display, it's just avr and can only print text, the vendor was very nice to provide but unfortunatly it's terrible coded and the font uses a even nasty even/odd mapping for the row addressing that it's not acceptable.<br>
-So I decided to start from scratch from the Datasheet and see if I can do better<br>
-First of all, the Osram decision was very wrong sign that even Germans can fail as everyone else (can't resist) and there's no way to use basic things like draw a single pixel or better... it's possible but the more pixels you write will cover the old pixels, for example, draw pixel 0, now you decide to draw pixel 1 and you realize that this pixels (0,1,2) are part of the same pixel (remember the 96 pixel addressed as r,g,b?) so to frite pixel 1 you will need to black the r,b side of the pixel that will turn off pixel 0, I hope you get the picture!<br>
-Hardware Accellerated DrawRect? Forget it! You can only have a chance to use Accellerated Draw Line for vertical and horizontal lines but NEVER for oblique one and only by using some un-usual code.<br>
-Going back to library I finally managed to render font in a decent way and modified a DotFactoryProgram to convert fonts in a Pictiva 3bit assimilable form, fixed the SPI access and touched 14Mhz and get a vertical and horizontal line accellerated drawing, all this at 4bit grayscale (a secondary effect of using the r,g,b pin as addressing) and with vertical scroll, idle mode and brightness.<br>
-I was really surprise that it's extremely difficult find the SSD0323 datasheet and no library exist for this display (apart the one provided by ebay vendor and another driver as linux framebuffer but really basic or not working).
+I got this nice display on ebay, really cheap and I was really surprised, it come with an arduino library and some king of documentation (very poor indeed), it was looking a real affair!<br>
+Once arrived, I discovered that needs a 12->15V voltage and a 3V3, easy to solve with a simple step-up circuit. The library was working and does exact as described, but works only as text display, fixed font size, so I take a look inside library and decided immediately to trash it, it's horrible coded with amazing errors, for example the guy who coded initialize the display, then apply an hardware reset (in this way initialization gone), he also decided to use the most weird row addressing I ever see where 1=1,2=47,3=2,4=48... As result write a char it's something that need a psychiatric to understand, even worst, write a new font file with this method it's just INSANE, all this are just a fraction of the problems, and code it's really slow (slower is impossible).<br>
+Armed of the best purposed I take a look at the Osram datasheet (just one page, only descriptions), really useless but reference to a Solomon SSD0323 as driver that is also NOT documented. I had an hard time to get a really preliminary datasheet of the SSD0323 and with the tiny informations on the Osram product informations I discovered that they mapped the colums in sequence with r,g,b pixels, this because Solomon chip can handle only 96 pixels (r,g,b) but this pictiva is 288, 96x3 = 288!<br>
+Ok, it's a big fail in design, doing this it's impossible to use the hardware accellerated functions of the SSD chip and even worst this display it's graphic but it's hard to use with this design! A Wolkswagen german style fail!<br>
+<b>Design a new library</b><br>
+Ok, time to start from scratch! I literaly trashed the old library and start to study what I can get out from this display<br>
+ - Using as Text but also Graphic display
+ - Ability to use the 5 bit of grey.
+ - Ability to use custom fonts, I mean NORMAL and EASY converted fonts (not the messy library one)
+ - Ability to use SSD Hardware accellerated functions where it's possible
+
+These are goals, but studing how Osram designed this display I come across really big ostacles, the major it's the columns mapped to r,g,b, this give for each pixel a line of 3 pixel! Even write an oblique line it's a challenge.<br>
+I like almost impossible challenge and at the end I was able to write every type of font, use most accellerated graphic command and so on, all my design point reached!<br>
+<b>Why still not posted?</b><br>
+Doing some research on the net I come across some suspect request I find in hire engineer site where a guy is paying 50US for write a simple library for this display that act as text display, this is really similar to the library I got with the display (nothing to say to the ebay display vendor, he was nice to provide and at list it works somehow), I take time to finish and optimize it (in a couple of days I will post video of proff that shows my current development results) than if I have some request I will post it. In the meantime if you came across this display you are warned, there's nothing online that can help you and it's really a challenge to write something usable!
