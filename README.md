@@ -17,11 +17,13 @@ Time to start from scratch? Yes, I literaly trashed the old library and studied 
 
 <b>Goals..</b><br>
  - Using as Text but also Graphic display.
- - Ability to use the 5 bit of greyscale.
+ - Ability to use the 5 bit of greyscale as color.
  - Ability to use custom fonts, I mean NORMAL and EASY converted fonts (not like the twisted one included in demo library).
  - Ability to use SSD Hardware accellerated functions where it's possible.
  - Enable most SSD functions where possible.
  - Ability to use global Brightness.
+ - Ability to change Contrast.
+ - Ability to send 24Bit image and convert on the fly to 5 bit grayscale, full screen!
  - Since OLEDs consume very low, ability to use Sleep.
 
 In theory everithing it's possible, but studing how Osram designed this display I come across big ostacles, the major is the mapping of each colums by using r,g,b lines of a single pixel (the SSD it's color but display not), this give for each pixel a line of 3 pixel! Even write an oblique line it's a challenge but also a single pixel, I need to write always 3 pixels! The only pro is that I can use 5 bit for change the greyscale of each pixel but addressing it's a mess, with a fast processor you can (in theory) use it as frame buffer but it waste resources, grr... I hope at Osram kick the ass to the guy under this twisted idea!<br>
