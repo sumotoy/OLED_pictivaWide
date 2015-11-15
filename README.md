@@ -25,7 +25,7 @@ With this design limitation it's impossible to use the hardware accellerated fun
 <b>Design a new library</b><br>
 Time to start from scratch, I literaly trashed the old library and studied what I can get out from this display since online I cannot find any help and my informations are really limited. I have contacted Osram and they refused any support or documents because it's a retired products and the only doc it's just for reference. Thanks a lot, Fritz, so let's decide the goals and code myself:<br><br>
 
-<b>Goals..</b><br>
+<b>Goals..</b>. Of course saving this design failure from the trash!<br>
  - Easy to use, only 4 Wires.
  - Enable 5 bit of greyscale.
  - Custom fonts, I mean NORMAL and EASY converted fonts (not like the twisted one included in demo library).
