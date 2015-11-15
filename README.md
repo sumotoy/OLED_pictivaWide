@@ -16,15 +16,16 @@ With this design limitation it's impossible to use the hardware accellerated fun
 Time to start from scratch? Yes, I literaly trashed the old library and studied what I can get out from this display since online I cannot find any help and my informations are really limited. I have contacted Osram and they refused any support or documents because it's a retired products and the only doc it's just for reference. Thanks a lot, Fritz, so let's decide the goals and code myself:<br><br>
 
 <b>Goals..</b><br>
- - Using as Text but also Graphic display.
- - Ability to use the 5 bit of greyscale as color.
- - Ability to use custom fonts, I mean NORMAL and EASY converted fonts (not like the twisted one included in demo library).
- - Ability to use SSD Hardware accellerated functions where it's possible.
- - Enable most SSD functions where possible.
- - Ability to use global Brightness.
- - Ability to change Contrast.
+ - Easy to use, only 4 Wires.
+ - Enable 5 bit of greyscale.
+ - Custom fonts, I mean NORMAL and EASY converted fonts (not like the twisted one included in demo library).
+ - Use SSD Hardware accellerated functions where it's possible.
+ - Use most SSD functions where possible.
+ - Enable global Brightness (for longer OLED life).
+ - Enable change Contrast.
  - Ability to send 24Bit image and convert on the fly to 5 bit grayscale, full screen!
  - Since OLEDs consume very low, ability to use Sleep.
+ - Uses standard SPI, full SPI transaction compatible and play nice with other SPI devices.
 
 In theory everithing it's possible, but studing how Osram designed this display I come across big ostacles, the major is the mapping of each colums by using r,g,b lines of a single pixel (the SSD it's color but display not), this give for each pixel a line of 3 pixel! Even write an oblique line it's a challenge but also a single pixel, I need to write always 3 pixels! The only pro is that I can use 5 bit for change the greyscale of each pixel but addressing it's a mess, with a fast processor you can (in theory) use it as frame buffer but it waste resources, grr... I hope at Osram kick the ass to the guy under this twisted idea!<br>
 I like almost impossible challenge and now finally I got all my design point reached! It cost me a lot of time because the lack of informations and have to rewrite several time a lot of code to simplify the weird addressing of this chip, but it's over now and I'm actually using in some of my projects, looks beautiful, I love OLED, and this one it's really far from the crappy chinese stuff (stamp size) I've used in the past, consider that this one cost at list half price!<br><br>
@@ -33,11 +34,9 @@ I like almost impossible challenge and now finally I got all my design point rea
 Actually I've tested only with Teensy 3.1, Here's connections:<br>
 ![Teensy](https://github.com/sumotoy/OLED_pictivaWide/blob/master/docs/pictivaTeensy.png)
 <br>
+As you notice this display needs an extra voltage of 12-15V! Only few milliamps needed so you can use literally anything to provide this voltage but if you are plan to use this display in Audio or measurement be careful to filter enough the voltage or you can get a lot of EMI emissions!<br>
+The logic works only at 3V3 and logic level are only 3V3! Do not connect directly to an Arduino UNO or any processors at 5V or you will destroy it!<br>
 
-<b>Why still not posted?</b><br>
-Doing some research on the net I come across some suspect request I find in several hire engineer sites where a guy is paying 50US for write a simple library for this display that act as text display, very similar to the library I got with the display (nothing to say to the ebay display vendor, he was nice to provide and at list it works somehow), the purpose is clearly sell more displays got as stock by providing a code for use, I don't like such a miserable level of support, company as Adafruit or similar provide always drivers for their products, almost all the time are just 'usable' but not so well written but they have support and user can ask help or they are forced to fix problems. For this reason I don't permit ANY sort of commercial use (included distribution) for this library since it will work only for this type of display that actually obsolete and no more in production.<br>
-If I got several requests I will consider to post it, in the meantime I will show here the results of my current library development and the old one so you can see the differences, for sure I do not post for single requests, sorry.<br>
-Before run to buy this display consider that you need solid skills to write a library yourself! No datasheets, scarse informations, nothing online and Osram not help at all and the only working library it's literally a piece of crap! If you have nothing to do... I may help with some information!<br>
 
 <b>Why it's so cheap?</b><br>
 Probably Osram realized that their design it's a massive fail and they are selling/selled quickly all factory stocks strongly undercost. The display it's available on ebay for a price that it's probably lower that the production costs, I've seen listed everywhere, even in Farnell and RS (discontinued of course), lower price it's around 4US but I'm sure it will drop<br>
