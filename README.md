@@ -15,6 +15,7 @@ It's virtually possible convert any font but it's absolutely necessary to choose
 For Icons there's the same limitation, only numbers multiple of 3 in wide.<br>
 It looks complicated but in reality it's much better this approach than add tons of code!<br>
 For conversion I use https://github.com/riuson/lcd-image-converter, I provide 2 different templates for FONT and ICON named <b>sumotoy_font.tmpl</b> (the same used in RA8875) and <b>sumotoy_image.tmpl</b> follow wiki https://github.com/sumotoy/OLED_pictivaWide/wiki/Font-Conversion (please note that it's a preliminary early wiki copied from my RA8875 one but for this library there's limitations above mentioned)<br>
+The RA8875 and this library can sharing the same fonts, however only this library fonts can be used in both libraries! The RA8875 fonts are not compatible due the hardware limitation of this one that needs only multiple of 3 pixel wide fonts (included space), very rare to find as is...<br>
 
 <b>Background</b><br>
 I got this nice display on ebay, really cheap and I was really surprised, it come with an arduino library and some kind of documentation (very poor indeed), it was looking a real affair!<br>
