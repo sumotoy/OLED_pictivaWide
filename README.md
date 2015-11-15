@@ -6,8 +6,8 @@ A REAL and fully working library for the Osram Pictiva OLED 288x48, made in Germ
 - OS288048PQ33MO2C11
 
 <b>Current version:</b><br>
-<b>1.1b1</b>: This is the first public beta, I have used it a bit in some project and works really well, I have enabled almost all features in goals, play nice with other SPI devices and it's fast, however there's some work to do, for example I have not clear how to deal with X values soince internally are limited by 96 but actually display it's 288!<br>
-Since the x axis it's color-drived I personally prefere the 96 pixel approach since draw between r,g,b pixel require a large amount of code so take a look to the examples and pay attention to code comments.<br>
+<b>1.1b1</b>: This is the first public beta, I have used it a bit in some project and works really well, I have enabled almost all features in goals, play nice with other SPI devices and it's fast, however there's some work to do, for example I have not clear how to deal with X values since internally are limited by 96 but actually display it's 288! (it uses the r,g,b values as pixels)<br>
+Since the x axis it's color-drived I personally prefere the 96 pixel approach (draw between r,g,b pixel require a large amount of code) so take a look to the examples and pay attention to code comments.<br>
 
 <b>Background</b><br>
 I got this nice display on ebay, really cheap and I was really surprised, it come with an arduino library and some king of documentation (very poor indeed), it was looking a real affair!<br>
