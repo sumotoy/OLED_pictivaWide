@@ -1,5 +1,6 @@
 # OLED pictiva 288x48
 A REAL and fully working library for the Osram Pictiva OLED 288x48, made in Germany, great quality but design Failed like Wolkswagen! They have a 288 pixel display but they are using a 96 pixel chip to drive it so they failed by using the r,g,b pixels of the SSD chip as addressing, this caused the premature dead of this display.<br>
+This is actually the only library that really works with this display.<br>
 
 - OS288048PQ33MY0C11
 - OS288048PQ33MG1C11
