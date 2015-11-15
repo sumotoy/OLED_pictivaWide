@@ -1,3 +1,6 @@
+/*
+Please refere to OLED_pictivaWide.h for copyrights!
+*/
 #include <OLED_pictivaWide.h>
 
 
