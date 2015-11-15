@@ -9,6 +9,12 @@ A REAL and fully working library for the Osram Pictiva OLED 288x48, made in Germ
 <b>1.1b1</b>: This is the first public beta, I have used it a bit in some project and works really well, I have enabled almost all features in goals, play nice with other SPI devices and it's fast, however there's some work to do, for example I have not clear how to deal with X values since internally are limited by 96 but actually display it's 288! (it uses the r,g,b values as pixels)<br>
 Since the x axis it's color-drived I personally prefere the 96 pixel approach (draw between r,g,b pixel require a large amount of code) so take a look to the examples and pay attention to code comments.<br>
 
+<b>Font and Icon conversion:</b><br>
+It's virtually possible convert any font but it's absolutely necessary to choose fonts with wide of 3 or multiple of 3! I mean, the font can contain any glyph between 3 to 6,9,12,etc but NEVER numbert outside this range! This caused by design choosed by OSRAM for this display, in theory it's possible avoid this but require a large amount of code. The font can be any high since on Y axis there's only the limitation of 47.<br>
+For Icons there's the same limitation, only numbers multiple of 3 in wide.<br>
+It looks complicated but in reality it's much better this approach than add tons of code!<br>
+For conversion I use https://github.com/riuson/lcd-image-converter, I provide 2 different templates for FONT and ICON named <b>sumotoy_font.tmpl</b> (the same used in RA8875) and <b>sumotoy_image.tmpl</b> follow wiki https://github.com/sumotoy/OLED_pictivaWide/wiki/Font-Conversion (please note that it's a preliminary early wiki copied from my RA8875 one but for this library there's limitations above mentioned)<br>
+
 <b>Background</b><br>
 I got this nice display on ebay, really cheap and I was really surprised, it come with an arduino library and some king of documentation (very poor indeed), it was looking a real affair!<br>
 The display it's superbly made, german quality, chip on glass, really nice Yellow, it's an OLED of course and contain 13824 LED's so reading it's crisp and visible at any angle, simply superb!<br>
