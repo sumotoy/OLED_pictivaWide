@@ -31,7 +31,8 @@ I like almost impossible challenge and now finally I got all my design point rea
 
 <b>Connections</b><br>
 Actually I've tested only with Teensy 3.1, Here's connections:<br>
-![SPI fix](https://github.com/sumotoy/OLED_pictivaWide/docs/PictivaTeensy.png)
+![Teensy](https://github.com/sumotoy/OLED_pictivaWide/blob/master/docs/pictivaTeensy.png)
+<br>
 
 <b>Why still not posted?</b><br>
 Doing some research on the net I come across some suspect request I find in several hire engineer sites where a guy is paying 50US for write a simple library for this display that act as text display, very similar to the library I got with the display (nothing to say to the ebay display vendor, he was nice to provide and at list it works somehow), the purpose is clearly sell more displays got as stock by providing a code for use, I don't like such a miserable level of support, company as Adafruit or similar provide always drivers for their products, almost all the time are just 'usable' but not so well written but they have support and user can ask help or they are forced to fix problems. For this reason I don't permit ANY sort of commercial use (included distribution) for this library since it will work only for this type of display that actually obsolete and no more in production.<br>
