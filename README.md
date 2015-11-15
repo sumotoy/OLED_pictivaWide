@@ -52,3 +52,9 @@ The logic works only at 3V3 and logic level are only 3V3! Do not connect directl
 
 <b>Why it's so cheap?</b><br>
 Probably Osram realized that their design it's a massive fail and they are selling/selled quickly all factory stocks strongly undercost. The display it's available on ebay for a price that it's probably lower that the production costs, I've seen listed everywhere, even in Farnell and RS (discontinued of course), lower price it's around 4US but I'm sure it will drop<br>
+
+![starWars](https://github.com/sumotoy/OLED_pictivaWide/blob/gh-pages/images/CIMG5416.png)
+![bars](https://github.com/sumotoy/OLED_pictivaWide/blob/gh-pages/images/CIMG5418.png)
+![font1](https://github.com/sumotoy/OLED_pictivaWide/blob/gh-pages/images/CIMG5425.png)
+![font2](https://github.com/sumotoy/OLED_pictivaWide/blob/gh-pages/images/CIMG5427.png)
+![oledFun](https://github.com/sumotoy/OLED_pictivaWide/blob/gh-pages/images/CIMG5423.png)
