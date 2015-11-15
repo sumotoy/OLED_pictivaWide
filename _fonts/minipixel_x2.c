@@ -35,12 +35,12 @@
 
 
 
-static const uint8_t image_data_minipixel_x2_0x20[7] __PRGMTAG_  = {
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+static const uint8_t image_data_minipixel_x2_0x20[1] __PRGMTAG_  = {
+    0x00
 };////character: ' '
 
 static const tImage minipixel_x2_0x20 __PRGMTAG_ = { image_data_minipixel_x2_0x20,
-    3, 7};//character: ' ' , height: 17, (charW,total bytes)
+    3, 1};//character: ' ' , height: 17, (charW,total bytes)
 
 static const uint8_t image_data_minipixel_x2_0x21[7] __PRGMTAG_  = {
     0x03, 0x6d, 0xb6, 0xdb, 0x0d, 0xb0, 0x00

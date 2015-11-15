@@ -37,12 +37,12 @@
 
 
 
-static const uint8_t image_data_battery_x2_0x20[7] __PRGMTAG_  = {
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+static const uint8_t image_data_battery_x2_0x20[1] __PRGMTAG_  = {
+    0x00
 };////character: ' '
 
 static const tImage battery_x2_0x20 __PRGMTAG_ = { image_data_battery_x2_0x20,
-    4, 7};//character: ' ' , height: 13, (charW,total bytes)
+    6, 1};//character: ' ' , height: 13, (charW,total bytes)
 
 static const uint8_t image_data_battery_x2_0x30[15] __PRGMTAG_  = {
     0x3e, 0x11, 0x3f, 0xf0, 0x18, 0x0c, 0x06, 0x03, 0x01, 0x80, 0xc0, 0x60, 0x30, 0x1f, 0xf8

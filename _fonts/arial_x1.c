@@ -36,12 +36,12 @@
 
 
 
-static const uint8_t image_data_arial_x1_0x20[3] __PRGMTAG_  = {
-    0x00, 0x00, 0x00
+static const uint8_t image_data_arial_x1_0x20[1] __PRGMTAG_  = {
+    0x00
 };////character: ' '
 
 static const tImage arial_x1_0x20 __PRGMTAG_ = { image_data_arial_x1_0x20,
-    3, 3};//character: ' ' , height: 6, (charW,total bytes)
+    3, 1};//character: ' ' , height: 6, (charW,total bytes)
 
 static const uint8_t image_data_arial_x1_0x21[3] __PRGMTAG_  = {
     0x49, 0x04, 0x00
