@@ -1,0 +1,44 @@
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+OLED_pictivaWide	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin	KEYWORD2
+setContrast		KEYWORD2
+clearScreen	KEYWORD2
+clearArea	KEYWORD2
+displayMode	KEYWORD2
+setCursor	KEYWORD2
+getCursorX	KEYWORD2
+getCursorY	KEYWORD2
+setFontColor	KEYWORD2
+globalBrightness	KEYWORD2
+verticalScroll	KEYWORD2
+drawFastVLine	KEYWORD2
+drawFastHLine	KEYWORD2
+drawRect	KEYWORD2
+fillRect	KEYWORD2
+drawIcon	KEYWORD2
+dimWindow	KEYWORD2
+powerSafe	KEYWORD2
+drawLine	KEYWORD2
+getVerticalOffset	KEYWORD2
+setFont	KEYWORD2
+getFontHeight	KEYWORD2
+getFontWidth	KEYWORD2
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+ON	LITERAL1
+OFF	LITERAL1
+NORMAL	LITERAL1
+INVERTED	LITERAL1
+ALL_ON	LITERAL1
+ALL_OFF	LITERAL1
+ 
