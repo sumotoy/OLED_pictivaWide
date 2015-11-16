@@ -442,6 +442,7 @@ void OLED_pictivaWide::rectCommandCont(uint8_t sX,uint8_t sY,uint8_t eX,uint8_t 
 void OLED_pictivaWide::setCursor(uint8_t col, uint8_t row) {
 	_cursorX = col * _spaceCharWidth;
 	_cursorY = row * (_FNTheight + _FNTinterline);
+
 }
 
 //OK
@@ -596,6 +597,7 @@ void OLED_pictivaWide::_charWriteR(const char c)
 {
 	int p;
 	uint8_t i;
+	if (_cursorY < 1) _cursorY = 1;//temporary fix...
 	if (c == 13){//------------------------------- CARRIAGE ----------------------------------
 		//ignore
 	} else if (c == 10){//------------------------- NEW LINE ---------------------------------
