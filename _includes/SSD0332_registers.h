@@ -44,7 +44,7 @@ const static uint8_t _CMD_FILL_MODE = 		0x26;//
 #define OP_HDWMAXW 	95
 #define OP_HDWMAXH 	47
 #define OP_HRDWMUX	48//63
-#define OP_OFFSET 	0//0x30
+#define OP_OFFSET 	-1//0x30
 
 
 #endif

@@ -597,7 +597,6 @@ void OLED_pictivaWide::_charWriteR(const char c)
 {
 	int p;
 	uint8_t i;
-	if (_cursorY < 1) _cursorY = 1;//temporary fix...
 	if (c == 13){//------------------------------- CARRIAGE ----------------------------------
 		//ignore
 	} else if (c == 10){//------------------------- NEW LINE ---------------------------------
