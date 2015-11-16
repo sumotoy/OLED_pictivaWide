@@ -37,7 +37,7 @@ void OLED_pictivaWide::begin(void) {
 	#endif
 	digitalWrite(_cs, _csState);
 	digitalWrite(_dc, _dcState);
-	if (_rst != 255){
+	if (_rst != 255){//time for a reset?
 		digitalWrite(_rst, LOW);
 		delay(50);
 		digitalWrite(_rst, HIGH);
@@ -45,7 +45,7 @@ void OLED_pictivaWide::begin(void) {
 	}
 	setContrast(0x80);
 	setBrightness(21);
-	_opw_send(_CMD_SETREMAP,true);//160
+	_opw_send(_CMD_SETREMAP,true);
 	_opw_send(0b01110010,true);//0b00110011
 	/*
 A[0]=0, Horizontal address increment (POR)
@@ -415,6 +415,7 @@ void OLED_pictivaWide::fillRect(int x,int y,int w,int h,uint8_t borderC,uint8_t 
 	_opw_startSend();
 	rectCommandCont(x,y,x + w,y + h,borderC,borderC,borderC,insideC,insideC,insideC,true);
 	_opw_endSend();
+	delayMicroseconds(100);
 }
 
 //OK
@@ -725,7 +726,7 @@ void OLED_pictivaWide::_drawChar_unc(int16_t x,int16_t y,int index,int charW)
 	fast and without using divisions or if..then and so on.
 	I've used tons of shift instead, the result it's a blazing fast display of a 288x48 image!
 	I'm proud of the semplicity of this function, simple and fast, but this is the result of several attempts!
-	NOTE: The width of the icon SHOULD BE A MULTIPLE OF 3 due hardware limitations
+	NOTE: The width of the icon SHOULD BE 3 OR A MULTIPLE OF 3 due hardware limitations
 */
 void OLED_pictivaWide::drawIcon(int x, int y,const tIcon *icon)
 {
