@@ -1,6 +1,6 @@
 /*
 A Fast and Optimized library for Pictiva Oled 288x48 drived by Solomon SSD0332, for Teensy's and Arduinos.
-Version:1.1
+Version:1.2
 -----------------------------------------------------------------------------------------------------------
 Copyright 2015 .s.u.m.o.t.o.y. and Max MC Costa, all rights reserved!
 -----------------------------------------------------------------------------------------------------------
@@ -55,11 +55,18 @@ because not understand fully how chip works and how it's wired to the display.
 
 
 #if defined(_FORCE_PROGMEM__)
-template <typename T> T PROGMEM_read (const T * sce)
+/*
+template <typename T> T PROGMEM_get (const T * sce)
   {
   static T temp;
   memcpy_P (&temp, sce, sizeof (T));
   return temp;
+  }
+*/  
+  
+template <typename T> void PROGMEM_read (const T * sce, T& dest)
+  {
+		memcpy_P (&dest, sce, sizeof (T));
   }
 #endif
 

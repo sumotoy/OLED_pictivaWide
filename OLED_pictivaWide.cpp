@@ -515,7 +515,8 @@ int OLED_pictivaWide::_STRlen_helper(const char* buffer,int len)
 				charIndex = _getCharCode(buffer[i]);
 				if (charIndex > -1) {		//found!
 					#if defined(_FORCE_PROGMEM__)
-						totW += (PROGMEM_read(&_currentFont->chars[charIndex].image->image_width));
+						//totW += (PROGMEM_get(&_currentFont->chars[charIndex].image->image_width));
+						totW += (pgm_read_byte(&(_currentFont->chars[charIndex].image->image_width)));
 					#else
 						totW += (_currentFont->chars[charIndex].image->image_width);
 					#endif
@@ -545,7 +546,8 @@ void OLED_pictivaWide::setFont(const tFont *font)
 		int temp = _getCharCode(0x20);
 		if (temp > -1){
 			#if defined(_FORCE_PROGMEM__)
-			_spaceCharWidth = PROGMEM_read(&_currentFont->chars[temp].image->image_width);
+			//_spaceCharWidth = PROGMEM_get(&_currentFont->chars[temp].image->image_width);
+			_spaceCharWidth = pgm_read_byte(&(_currentFont->chars[temp].image->image_width));
 			#else
 			_spaceCharWidth = (_currentFont->chars[temp].image->image_width);
 			#endif
@@ -621,7 +623,8 @@ void OLED_pictivaWide::_charWriteR(const char c)
 		if (charIndex > -1){//valid?
 			//check if goes out of screen and goes to a new line (if wrap) or just avoid
 			#if defined(_FORCE_PROGMEM__)
-				int charW =   PROGMEM_read(&_currentFont->chars[charIndex].image->image_width);
+				//int charW =   PROGMEM_get(&_currentFont->chars[charIndex].image->image_width);
+				int charW =   pgm_read_byte(&(_currentFont->chars[charIndex].image->image_width));
 			#else
 				int charW =  _currentFont->chars[charIndex].image->image_width;
 			#endif
@@ -650,8 +653,14 @@ void OLED_pictivaWide::_drawChar_unc(int16_t x,int16_t y,int index,int charW)
 {
 	//start by getting some glyph data...
 	#if defined(_FORCE_PROGMEM__)
-		const uint8_t * charGlyp = PROGMEM_read(&_currentFont->chars[index].image->data);//char data
-		int			  totalBytes = PROGMEM_read(&_currentFont->chars[index].image->image_datalen);
+	/*
+		const uint8_t * charGlyp = PROGMEM_get(&_currentFont->chars[index].image->data);//char data
+		int			  totalBytes = PROGMEM_get(&_currentFont->chars[index].image->image_datalen);
+		*/
+		const uint8_t * charGlyp;
+		int			  totalBytes;
+		PROGMEM_read(&(_currentFont->chars[index].image->data),charGlyp);//char data
+		PROGMEM_read(&(_currentFont->chars[index].image->image_datalen),totalBytes);
 	#else
 		const uint8_t * charGlyp = _currentFont->chars[index].image->data;
 		int			  totalBytes = _currentFont->chars[index].image->image_datalen;
@@ -671,7 +680,8 @@ void OLED_pictivaWide::_drawChar_unc(int16_t x,int16_t y,int index,int charW)
 	while (currentByte < totalBytes){
 		//read n byte
 		#if defined(_FORCE_PROGMEM__)
-			temp = PROGMEM_read(&charGlyp[currentByte]);
+			//temp = PROGMEM_get(&charGlyp[currentByte]);
+			PROGMEM_read(&(charGlyp[currentByte]),temp);
 		#else
 			temp = charGlyp[currentByte];
 		#endif
@@ -732,10 +742,17 @@ void OLED_pictivaWide::drawIcon(int x, int y,const tIcon *icon)
 {
 	//get data
 	#if defined(_FORCE_PROGMEM__)
-		const uint16_t * iconData = PROGMEM_read(&icon->data);//char data
-		int			  iWidth     = PROGMEM_read(&icon->image_width);
-		uint8_t 	  iHeight    = PROGMEM_read(&icon->image_height);
-		int 		  datalen	 = PROGMEM_read(&icon->image_datalen);
+	/*
+		const uint16_t * iconData = PROGMEM_get(&icon->data);//char data
+		int			  iWidth     = PROGMEM_get(&icon->image_width);
+		uint8_t 	  iHeight    = PROGMEM_get(&icon->image_height);
+		int 		  datalen	 = PROGMEM_get(&icon->image_datalen);
+		*/
+		const uint16_t * iconData;
+		PROGMEM_read(&(icon->data),iconData);//char data
+		int			  iWidth     = pgm_read_byte(&(icon->image_width));
+		uint8_t 	  iHeight    = pgm_read_byte(&(icon->image_height));
+		int 		  datalen	 = pgm_read_word(&(icon->image_datalen));
 	#else
 		const uint16_t * iconData = icon->data;//char data
 		int			  iWidth     = icon->image_width;
