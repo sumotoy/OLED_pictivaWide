@@ -11,7 +11,7 @@ OLED_pictivaWide::OLED_pictivaWide(const uint8_t csPin, const uint8_t dcPin, con
 	_cs = csPin;
 }
 	
-void OLED_pictivaWide::begin(void) {
+void OLED_pictivaWide::begin(bool avoidSPIinit) {
 	_cursorX = 0;
 	_cursorY = 0;
 	_dcState = HIGH;
@@ -25,7 +25,7 @@ void OLED_pictivaWide::begin(void) {
 	_txtBackColor = 0;
 	_txtTrasparency = false;
 	_fillRegister = 0b00100000;
-	SPI.begin();
+	if (!avoidSPIinit) SPI.begin();
 	pinMode(_cs, OUTPUT);
 	pinMode(_rst, OUTPUT);
 	pinMode(_dc, OUTPUT);

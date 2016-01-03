@@ -81,7 +81,7 @@ enum OLEDpictivaWideDispMode {ON=0,OFF,NORMAL,INVERTED,ALL_ON,ALL_OFF };
 class OLED_pictivaWide : public Print {
    public:
    OLED_pictivaWide(const uint8_t csPin, const uint8_t dcPin, const uint8_t rstPin=255);
-	void 		begin(void);//OK
+	void 		begin(bool avoidSPIinit=false);//avoidSPIinit=true set everithing but not call SPI.init()
 	void 		setContrast(uint8_t contrast=128);//OK
 	void 		clearScreen(void);//OK
 	void 		clearArea(int sY, int eY, int sX, int eX);
