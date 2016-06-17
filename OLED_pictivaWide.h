@@ -146,7 +146,7 @@ protected:
 	void _opw_setDC(bool state) {
 		if (_dcState != state){
 			_dcState = state;
-			#if defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MKL26Z64__)
+			#if defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MKL26Z64__) || defined(__MK64FX512__) || defined(__MK66FX1M0__)
 				digitalWriteFast(_dc, _dcState);
 			#else
 				digitalWrite(_dc, _dcState);
@@ -158,7 +158,7 @@ protected:
 	void _opw_setCS(bool state) {
 		if (_csState != state){
 			_csState = state;
-			#if defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MKL26Z64__)
+			#if defined(__MK20DX128__) || defined(__MK20DX256__) || defined(__MKL26Z64__) || defined(__MK64FX512__) || defined(__MK66FX1M0__)
 				digitalWriteFast(_cs, _csState);
 			#else
 				digitalWrite(_cs, _csState);
